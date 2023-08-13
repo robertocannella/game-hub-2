@@ -5,6 +5,7 @@ import { Platform } from "./usePlatforms";
 
 
 const apiClient = new APIClient<Game>('/games')
+
 export interface Game {
   id: number;
   name: string;
@@ -22,7 +23,7 @@ const useGames = (gameQuery: GameQuery) =>
       apiClient.getAll({
         params: {
           genres: gameQuery.genreId,
-          parent_platforms: gameQuery.platform?.id,
+          parent_platforms: gameQuery.platformId,
           ordering: gameQuery.sortOrder,
           search: gameQuery.searchText,
           page: pageParam
